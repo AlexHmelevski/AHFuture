@@ -12,8 +12,9 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		8231FE588F206449AF7ECC9A /* Pods_AHFuture_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1434B13380A60ADE5CC99F /* Pods_AHFuture_Example.framework */; };
+		891D64511EBA1DAB002C42DD /* AHAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891D64501EBA1DAB002C42DD /* AHAsyncTests.swift */; };
+		891D64531EBA2074002C42DD /* AHFutureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891D64521EBA2074002C42DD /* AHFutureTests.swift */; };
 		AA9C471056C99C173BCEA4CB /* Pods_AHFuture_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A44C07479EB0487A08C458A /* Pods_AHFuture_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		065C572BEFEE07412651AAB8 /* Pods-AHFuture_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHFuture_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-AHFuture_Example/Pods-AHFuture_Example.release.xcconfig"; sourceTree = "<group>"; };
-		21B1649D2F4D61A2AF3B6C97 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		21B1649D2F4D61A2AF3B6C97 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5A44C07479EB0487A08C458A /* Pods_AHFuture_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHFuture_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* AHFuture_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHFuture_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,11 +41,12 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* AHFuture_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AHFuture_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		8B3CCAB0EAFAC5B68FA7A80A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		891D64501EBA1DAB002C42DD /* AHAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHAsyncTests.swift; sourceTree = "<group>"; };
+		891D64521EBA2074002C42DD /* AHFutureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHFutureTests.swift; sourceTree = "<group>"; };
+		8B3CCAB0EAFAC5B68FA7A80A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A282E477D405E11C46271797 /* Pods-AHFuture_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHFuture_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AHFuture_Tests/Pods-AHFuture_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AF1434B13380A60ADE5CC99F /* Pods_AHFuture_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHFuture_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB77C565B47BAB478DA6E476 /* AHFuture.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = AHFuture.podspec; path = ../AHFuture.podspec; sourceTree = "<group>"; };
+		BB77C565B47BAB478DA6E476 /* AHFuture.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AHFuture.podspec; path = ../AHFuture.podspec; sourceTree = "<group>"; };
 		C4FC26D06B97B1D9A63CBB5C /* Pods-AHFuture_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHFuture_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AHFuture_Tests/Pods-AHFuture_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F964DB42BC9E9439EC1C5AED /* Pods-AHFuture_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHFuture_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AHFuture_Example/Pods-AHFuture_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,8 +126,9 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				891D64501EBA1DAB002C42DD /* AHAsyncTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				891D64521EBA2074002C42DD /* AHFutureTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -370,7 +373,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				891D64511EBA1DAB002C42DD /* AHAsyncTests.swift in Sources */,
+				891D64531EBA2074002C42DD /* AHFutureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +540,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AHFuture_Example.app/AHFuture_Example";
 			};
 			name = Debug;
 		};
@@ -552,6 +557,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AHFuture_Example.app/AHFuture_Example";
 			};
 			name = Release;
 		};
