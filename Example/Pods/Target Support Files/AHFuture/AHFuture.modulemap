@@ -1,0 +1,6 @@
+framework module AHFuture {
+  umbrella header "AHFuture-umbrella.h"
+
+  export *
+  module * { export * }
+}
