@@ -53,11 +53,13 @@ class AHAsyncTests: XCTestCase {
             completion(1)
         }
         
-        asyncOp.onComplete(onQueue: q) { (c) in
+        asyncOp.onComplete { (c) in
             XCTAssertEqual(DispatchQueue.currentQueueName, "Test")
             count += c
             self.exp.fulfill()
-        }.execute(onQueue: q)
+        }.observe(on: q)
+         .run(on: q)
+         .execute()
         wait(for: [exp], timeout: 10)
         XCTAssertEqual(count, 1)
         
@@ -74,11 +76,12 @@ class AHAsyncTests: XCTestCase {
             
         }
         
-        asyncOp.onComplete(onQueue: q) { (c) in
+        asyncOp.onComplete{ (c) in
             XCTAssertEqual(DispatchQueue.currentQueueName, "Test")
             count += c
             self.exp.fulfill()
-            }.execute()
+        }.observe(on: q)
+         .execute()
         wait(for: [exp], timeout: 10)
         XCTAssertEqual(count, 1)
         
@@ -100,7 +103,8 @@ class AHAsyncTests: XCTestCase {
             
             count += c
             self.exp.fulfill()
-            }.execute(onQueue: q)
+            }.run(on: q)
+             .execute()
         wait(for: [exp], timeout: 10)
         XCTAssertEqual(count, 1)
         

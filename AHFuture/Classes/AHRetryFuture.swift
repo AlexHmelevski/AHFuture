@@ -18,9 +18,9 @@ class RetryFuture<Value, E: Error> : AHFuture<Value,E> {
         count = max
     }
     
-    override func execute(onQueue q: DispatchQueue = .main) {
-        result.do(on: q, work: processResult)
-              .doIfNone(on: q, work: self.runScope)
+    override func execute() {
+        result.do(work: processResult)
+              .doIfNone(work: self.runScope)
         
     }
     

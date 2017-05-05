@@ -82,12 +82,66 @@ class AHFutureTests: XCTestCase {
     }
     
     
-    func test_testIf_continues() {
+    func test_flatMap_called_on_sucess() {
+        var f1ScopeCount = 0
+        var f2ScopeCount = 0
+        let f1 =  AHFuture<Int, TestError> { (completion) in
+            f1ScopeCount += 1
+            completion(.right(value: 1))
+        }
+        
+        let f2 =  AHFuture<String, TestError> { (completion) in
+            f2ScopeCount += 1
+            completion(.right(value: String(1)))
+            self.exp.fulfill()
+        }
+        
+        f1.flatMap { (Int) -> AHFuture<String, TestError> in
+            return f2
+        }.execute()
+        
+        wait(for: [exp], timeout: 10)
+        XCTAssertEqual(f1ScopeCount, 1)
+        XCTAssertEqual(f2ScopeCount, 1)
+    }
+    
+    
+    func test_flatMap_with_retry_called_on_sucess() {
+        var f1ScopeCount = 0
+        var f2ScopeCount = 0
+        let f1 =  AHFuture<Int, TestError> { (completion) in
+            f1ScopeCount += 1
+            completion(.right(value: 1))
+        }
+        
+        let f2 =  AHFuture<String, TestError> { (completion) in
+            f2ScopeCount += 1
+            if f2ScopeCount < 3 {
+                completion(.wrong(value: TestError.empty))
+            } else {
+                completion(.right(value: String(1)))
+                self.exp.fulfill()
+            }
+            
+        }
+        
+        f1.flatMap { (Int) -> AHFuture<String, TestError> in
+            return f2
+        }.retry(attempt: 3)
+         .execute()
+        
+        wait(for: [exp], timeout: 10)
+        XCTAssertEqual(f1ScopeCount, 3)
+        XCTAssertEqual(f2ScopeCount, 3)
+    }
+    
+    
+    func test_filter_continues() {
         var scopeCount = 0
         AHFuture<Int, TestError> { (completion) in
             scopeCount += 1
             completion(.right(value: 1))
-        }.takeIf(predicate: { $0 == 1 })
+        }.filter(predicate: { $0 == 1 })
             .map(transform: String.init)
             .onSuccess { (str) in
                 XCTAssertEqual(str, "1")
@@ -98,12 +152,12 @@ class AHFutureTests: XCTestCase {
         wait(for: [exp], timeout: 5)
     }
     
-    func test_testIf_doesnt_continue() {
+    func test_filter_doesnt_continue() {
         var scopeCount = 0
         AHFuture<Int, TestError> { (completion) in
             scopeCount += 1
             completion(.right(value: 1))
-        }.takeIf(predicate: { $0 == 0 })
+        }.filter(predicate: { $0 == 0 })
          .map(transform: String.init)
          .onSuccess { (str) in
                 XCTFail()
@@ -118,12 +172,12 @@ class AHFutureTests: XCTestCase {
     }
     
     
-    func test_testIf_map_to_error() {
+    func test_filter_map_to_error() {
         var scopeCount = 0
         AHFuture<Int, TestError> { (completion) in
             scopeCount += 1
             completion(.right(value: 1))
-        }.takeIf(predicate: {$0 == 0}, error: .empty)
+        }.filter(predicate: {$0 == 0}, error: .empty)
          .map(transform: String.init)
          .onSuccess { (str) in XCTFail() }
          .onFailure(callback: { (_) in self.exp.fulfill() })
@@ -134,12 +188,12 @@ class AHFutureTests: XCTestCase {
     }
     
     
-    func test_testIf_with_erro_map_returns_success() {
+    func test_filter_with_erro_map_returns_success() {
         var scopeCount = 0
         AHFuture<Int, TestError> { (completion) in
             scopeCount += 1
             completion(.right(value: 1))
-         }.takeIf(predicate: {$0 == 1}, error: .empty)
+         }.filter(predicate: {$0 == 1}, error: .empty)
             .map(transform: String.init)
             .onSuccess { (str) in self.exp.fulfill()  }
             .onFailure(callback: { (_) in XCTFail() })

@@ -32,7 +32,21 @@ public class AHFuture<Value, E: Error>: AHAsync<ALEither<Value, E>> {
         }
     }
     
-    public func takeIf(predicate: @escaping (Value) -> Bool) -> AHFuture<Value,E> {
+    public func flatMap<U>(transform: @escaping (Value) -> AHFuture<U,E>) ->  AHFuture<U,E> {
+        return AHFuture<U,E> { completion in
+            self.onComplete(callback: { (res) in
+                res.map(transform: transform)
+                    .do(work: { (future) in
+                        future.onComplete(callback: completion)
+                        future.execute()
+                    })
+                    .doIfWrong(work: { completion(.wrong(value: $0))})
+            })
+            self.execute()
+        }
+    }
+    
+    public func filter(predicate: @escaping (Value) -> Bool) -> AHFuture<Value,E> {
         return AHFuture<Value,E> { completion in
             
             self.onComplete(callback: { (res) in
@@ -42,12 +56,32 @@ public class AHFuture<Value, E: Error>: AHAsync<ALEither<Value, E>> {
         }
     }
     
-    public func takeIf(predicate: @escaping (Value) -> Bool, error: E) -> AHFuture<Value,E> {
+    public func filter(predicate: @escaping (Value) -> Bool, error: E) -> AHFuture<Value,E> {
         return AHFuture<Value,E> { completion in
             self.onComplete(callback: { (res) in
                 completion(res.takeIf(predicate: predicate, wrong: error))
             })
             self.execute()
+        }
+    }
+    
+    
+    public func mapError<U>(transform: @escaping (E) -> U) -> AHFuture<Value,U> {
+        return AHFuture<Value,U>{ completion in
+            self.onComplete(callback: { (res) in
+                res.doIfWrong(work: { completion(.wrong(value: transform($0))) })
+            })
+            self.execute()
+        }
+    }
+    
+    public func transform<T,U>(transform: @escaping (Value) -> T,
+                          transformError: @escaping (E)->U) -> AHFuture<T,U> {
+        return AHFuture<T,U>{ completion in
+            self.onComplete(callback: { (res) in
+                res.do(work: { completion(.right(value: transform($0))) })
+                   .doIfWrong(work: { completion(.wrong(value: transformError($0))) })
+            })
         }
     }
     

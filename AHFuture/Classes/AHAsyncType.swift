@@ -13,5 +13,5 @@ public protocol AHAsyncType {
     var result: Res? { get }
     init(scope:  @escaping (@escaping(Res) -> Void) -> Void)
     
-    func onComplete(onQueue q: DispatchQueue, callback: @escaping (Res) -> Void) -> Self
+    func onComplete(callback: @escaping (Res) -> Void) -> Self
 }
