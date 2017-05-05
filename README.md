@@ -22,7 +22,7 @@ pod "AHFuture"
 
 ## Author
 
-AlexHmelevskiAG, alexei.hmelevski@gmail.com
+Alex Hmelevski, alexei.hmelevski@gmail.com
 
 ## License
 
