@@ -82,6 +82,7 @@ public class AHFuture<Value, E: Error>: AHAsync<ALEither<Value, E>> {
                 res.do(work: { completion(.right(value: transform($0))) })
                    .doIfWrong(work: { completion(.wrong(value: transformError($0))) })
             })
+            self.execute()
         }
     }
     
