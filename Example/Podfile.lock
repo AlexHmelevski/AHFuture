@@ -1,7 +1,7 @@
 PODS:
-  - AHFuture (0.1.1):
+  - AHFuture (0.1.2):
     - ALEither
-  - ALEither (0.1.1)
+  - ALEither (0.1.4)
 
 DEPENDENCIES:
   - AHFuture (from `../`)
@@ -11,8 +11,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  AHFuture: 9fa89df5bf994397cb825bcc058b544aed4de05f
-  ALEither: 6dfa299bc72a2fe54ceba5fdb09eb4735f92caeb
+  AHFuture: 746afe59a5f5494c7833cdc25cfdda9a210e907f
+  ALEither: 790e8f1dda897bfcb56e547e5db86c4eb25da87b
 
 PODFILE CHECKSUM: b3b19d876248929a118dfb284db0276384845bb7
 

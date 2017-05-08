@@ -9,6 +9,17 @@
 
 import Foundation
 
+infix operator »: transformOperator
+
+precedencegroup transformOperator {
+    associativity: left
+    
+}
+
+public func »<T,U>(input: T, transform: (T) -> U) -> U {
+    return transform(input)
+}
+
 extension Optional {
     
     /// Conditional function, returns Either with valid value according to predicate block
@@ -44,9 +55,9 @@ extension Optional {
     ///   - work: block of work with value
     /// - Returns: unmodified Wrapped?
     @discardableResult
-    public func `do`(on queue: DispatchQueue? = nil, work:  @escaping (Wrapped) -> Void) -> Wrapped? {
+    public func `do`(work:  @escaping (Wrapped) -> Void) -> Wrapped? {
         if case .some(let val) = self {
-            performWork(onQueue: queue, work: { work(val) })
+            work(val)
         }
         return self
     }    
@@ -56,26 +67,16 @@ extension Optional {
     /// - Parameter work: Block of work
     /// - Returns: Wrapped?
     @discardableResult
-    public func doIfNone(on queue: DispatchQueue? = nil, work: @escaping () -> Void) -> Wrapped? {
+    public func doIfNone(work: @escaping () -> Void) -> Wrapped? {
         if case .none = self {
-            performWork(onQueue: queue, work: { work() })
+            work()
         }
         return self
     }
     
-    private func performWork(onQueue: DispatchQueue?, work:  @escaping () -> Void) {
-        guard let q = onQueue else {
-            work()
-            return
-        }
-        
-        q.async(execute: work)
-        
-    }
-    
     @discardableResult
     public func debug(message: String? = nil) -> Wrapped? {
-        message.do(work: { debugPrint($0 + " " + "\(self)") })
+        message.do(work: { debugPrint($0 + " " + "\(String(describing: self))") })
                .doIfNone(work: { debugPrint(self ?? "nil") })
         return self
     }

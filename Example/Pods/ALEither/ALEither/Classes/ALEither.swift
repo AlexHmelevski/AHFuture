@@ -97,14 +97,12 @@ public enum ALEither<R, E> {
     /// Peform work on a chosen thread(asynchtroniously) when a value is available
     ///
     /// - Parameters:
-    ///   - queue: Queue where to perform the block
     ///   - work: block of work with value
     /// - Returns: unmodified ALEither
     @discardableResult
-    public func `do`(on queue: DispatchQueue? = nil, work:  @escaping (R) -> Void) -> ALEither<R, E> {
+    public func `do`(work:  @escaping (R) -> Void) -> ALEither<R, E> {
         if case .right(let val) = self {
-            performWork(onQueue: queue, work: { work(val) })
-            
+            work(val)
         }
         return self
     }
@@ -114,9 +112,9 @@ public enum ALEither<R, E> {
     /// - Parameter work: Block of work with error
     /// - Returns: ALEither<R, E>
     @discardableResult
-    public func doIfWrong(on queue: DispatchQueue? = nil, work: @escaping  (E) -> Void) -> ALEither<R, E> {
+    public func doIfWrong(work: @escaping  (E) -> Void) -> ALEither<R, E> {
         if case .wrong(let err) = self {
-            performWork(onQueue: queue, work: { work(err) })
+            work(err)
             
         }
         return self
@@ -167,11 +165,5 @@ public enum ALEither<R, E> {
         return self
     }
     
-    private func performWork(onQueue: DispatchQueue?, work:  @escaping () -> Void) {
-        
-        onQueue.do(work: { $0.async(execute: work)})
-            .doIfNone(work:  work)
-        
-    }
  
 }

@@ -65,8 +65,7 @@ public class AHFuture<Value, E: Error>: AHAsync<ALEither<Value, E>> {
         }
     }
     
-    
-    public func mapError<U>(transform: @escaping (E) -> U) -> AHFuture<Value,U> {
+    public func recover<U>(transform: @escaping (E) -> U) -> AHFuture<Value,U> {
         return AHFuture<Value,U>{ completion in
             self.onComplete(callback: { (res) in
                 res.doIfWrong(work: { completion(.wrong(value: transform($0))) })
