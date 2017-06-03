@@ -39,11 +39,11 @@ User.logIn(username, password).flatMap { user in
 
 ## Supported operations: 
  - [map](#map)
- - [flatMap](#flatMap)
+ - [flatMap](#`flatMap`)
  - [filter](#filter)
  - [retry](#retry)
  - [recover](#recover)
- - [run/obserbe](#run/observe)
+ - [run/observe](#run/observe)
 
 ### `map`
 If success will transfrom `User` response to `UserViewModel` that can be used in success block
@@ -72,7 +72,7 @@ User.logIn(username, password).flatMap { Posts.fetchPosts }
 Will execute completion if predicate is true. 
 ```swift
 User.logIn(username, password).flatMap { Posts.fetchPosts }
-							  .filter { PostFilter.isTodaysPost }
+			      .filter { PostFilter.isTodaysPost }
 .onSuccess { posts in
     // do something with the user's posts
 }.onFailure { error in
@@ -83,7 +83,7 @@ User.logIn(username, password).flatMap { Posts.fetchPosts }
 Retry operator will try to execute AHFuture if there is an error. The parametr shows the number of attempts
 ```swift
 User.logIn(username, password).flatMap { Posts.fetchPosts }
-							  .retry(5)
+			      .retry(5)
 .onSuccess { posts in
     // do something with the user's posts
 }.onFailure { error in
