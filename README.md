@@ -95,7 +95,7 @@ User.logIn(username, password).flatMap { Posts.fetchPosts }
 Recover operator helps transform error to a placeholder object.
 ```swift
 User.logIn(username, password).flatMap { Posts.fetchPosts }
-							  .retry(5)
+			      .retry(5)
                               .recover {ErrorHandler.transformToPlaceholderModel}
 .onSuccess { posts in
     // do something with the user's posts
