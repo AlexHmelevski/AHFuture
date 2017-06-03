@@ -38,7 +38,7 @@ User.logIn(username, password).flatMap { user in
 ```
 
 ## Supported operations: 
- - [map](###`map`)
+ - [map](###map)
  - [flatMap](###`flatMap`)
  - [filter](###`filter`)
  - [retry](###`retry`)
