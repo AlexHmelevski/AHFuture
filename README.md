@@ -39,11 +39,11 @@ User.logIn(username, password).flatMap { user in
 
 ## Supported operations: 
  - [map](#map)
- - [flatMap](###`flatMap`)
- - [filter](###`filter`)
- - [retry](###`retry`)
- - [recover](###`recover`)
- - [run/obserbe](###`run/observe`)
+ - [flatMap](#flatMap)
+ - [filter](#filter)
+ - [retry](#retry)
+ - [recover](#recover)
+ - [run/obserbe](#run/observe)
 
 ### `map`
 If success will transfrom `User` response to `UserViewModel` that can be used in success block
@@ -58,7 +58,7 @@ User.logIn(username, password).map { UserViewModel.init }
 
 ### `flatMap`
 
-If logIn succeed will the response will be tranfromed to another AHFuture and the success block will contain result from the second AHFuture
+If logIn succeed the response will be tranfromed to another AHFuture and the success block will contain result from the second AHFuture
 ```swift
 User.logIn(username, password).flatMap { Posts.fetchPosts }
 .onSuccess { posts in
