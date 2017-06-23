@@ -10,7 +10,7 @@ import Foundation
 import ALEither
 
 
-class RetryFuture<Value, E: Error> : AHFuture<Value,E> {
+class RetryFuture<Value, E> : AHFuture<Value,E> {
     private var count: Int = 0
     
     convenience init(max:Int, scope: @escaping (@escaping (ALEither<Value, E>) -> Void) -> Void) {

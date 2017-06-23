@@ -9,7 +9,7 @@
 import Foundation
 import ALEither
 
-public class AHFuture<Value, E: Error>: AHAsync<ALEither<Value, E>> {
+public class AHFuture<Value, E>: AHAsync<ALEither<Value, E>> {
     public required init(scope:  @escaping (@escaping (ALEither<Value, E>) -> Void) -> Void) {
         super.init(scope: scope)
     }
