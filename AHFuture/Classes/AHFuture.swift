@@ -65,10 +65,12 @@ public class AHFuture<Value, E>: AHAsync<ALEither<Value, E>> {
         }
     }
     
-    public func recover<U>(transform: @escaping (E) -> U) -> AHFuture<Value,U> {
-        return AHFuture<Value,U>{ completion in
+    public func recover(transform: @escaping (E) -> Value) -> AHFuture<Value,E> {
+        return AHFuture{ completion in
             self.onComplete(callback: { (res) in
-                res.doIfWrong(work: { completion(.wrong(value: transform($0))) })
+                
+                res.doIfWrong(work: { completion(.right(value: transform($0))) })
+                   .do(work: {completion(.right(value: $0))})
             })
             self.execute()
         }

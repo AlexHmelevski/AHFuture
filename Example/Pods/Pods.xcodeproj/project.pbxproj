@@ -18,6 +18,7 @@
 		2CB50C65696717A1611B12FD340D16C1 /* AHAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57205B5333765E6383DCE75CD55C2204 /* AHAsync.swift */; };
 		672534A82F13D851C8F38AC51364918A /* OptionalExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567A4E0EBCD6E7CCB99AF1D7469FC3F /* OptionalExt.swift */; };
 		6C4A78AA09760ED499EE6F764912E017 /* Pods-AHFuture_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F1F3B98FD27F86DF0AA6568BA7690263 /* Pods-AHFuture_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89DAFD741EFDED91002EFCA7 /* AHStoppableFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DAFD731EFDED91002EFCA7 /* AHStoppableFuture.swift */; };
 		89E8DFE5E9162FDF31F30811C3C6440D /* AHAsyncType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6554C3269F640C09CA203F23408DF /* AHAsyncType.swift */; };
 		A716AC4E68BA11D440FD5B3E93DB03A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE3162BE7C3C25647C1B056757E85C7 /* Foundation.framework */; };
 		BCC090BCB7186412DCDF2501122AA501 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE3162BE7C3C25647C1B056757E85C7 /* Foundation.framework */; };
@@ -56,15 +57,15 @@
 		0579EFA438F64B51295BF5DD6AE92022 /* AHFuture.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AHFuture.xcconfig; sourceTree = "<group>"; };
 		088B2E4431585335B8E7C310B5100E42 /* Pods-AHFuture_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AHFuture_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0C2DC4E8A3EA9EBDC1B527DD6AF0DC5E /* Pods-AHFuture_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AHFuture_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		0FF008D3C14F1A8AE681BA8BF1552899 /* AHFuture.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AHFuture.modulemap; sourceTree = "<group>"; };
+		0FF008D3C14F1A8AE681BA8BF1552899 /* AHFuture.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AHFuture.modulemap; sourceTree = "<group>"; };
 		1F8F9587526C0392EB6F3468760F73B9 /* AHFuture.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AHFuture.swift; sourceTree = "<group>"; };
 		2629BA33E5A774BC0CD3327B60789DB7 /* ALEither.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ALEither.swift; path = ALEither/Classes/ALEither.swift; sourceTree = "<group>"; };
 		2BC010D3332CC6AB81BBB7F665DCD2FF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F8E8188C864F76B60670BB4DF49F76E /* Pods-AHFuture_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AHFuture_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		30EFEDB7B7A9C0EDFE4BF2F3A6CEF1BB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		317BB3053C79D43CB12C10087E06D965 /* Pods_AHFuture_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AHFuture_Example.framework; path = "Pods-AHFuture_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		317BB3053C79D43CB12C10087E06D965 /* Pods_AHFuture_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHFuture_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3567A4E0EBCD6E7CCB99AF1D7469FC3F /* OptionalExt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionalExt.swift; path = ALEither/Classes/OptionalExt.swift; sourceTree = "<group>"; };
-		3ADC5545FCB6A41D5F86CF039DFC693E /* Pods_AHFuture_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AHFuture_Tests.framework; path = "Pods-AHFuture_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ADC5545FCB6A41D5F86CF039DFC693E /* Pods_AHFuture_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHFuture_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		484EE5C6D68073CF094331279DADDA95 /* AHRetryFuture.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AHRetryFuture.swift; sourceTree = "<group>"; };
 		5163DB851B38D1EF5E111BE01E59BC01 /* Pods-AHFuture_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AHFuture_Tests-resources.sh"; sourceTree = "<group>"; };
 		57205B5333765E6383DCE75CD55C2204 /* AHAsync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AHAsync.swift; sourceTree = "<group>"; };
@@ -82,21 +83,22 @@
 		7F2299B5F63541D3606E59B79D67F59B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8169F073290317AC2ECCC263CDBC6BFC /* ALEither.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ALEither.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B1EE4B7378A728CCBA05A5B6469396 /* Pods-AHFuture_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AHFuture_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		8461735F5C582B8F50E035FA3D93E9C9 /* Pods-AHFuture_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AHFuture_Example.modulemap"; sourceTree = "<group>"; };
+		8461735F5C582B8F50E035FA3D93E9C9 /* Pods-AHFuture_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AHFuture_Example.modulemap"; sourceTree = "<group>"; };
 		87B3C1B683CA126E8E897C1B4F73CA91 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		98C8D88206515198980E1CF439F9A5CD /* ALEither.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ALEither.framework; path = ALEither.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89DAFD731EFDED91002EFCA7 /* AHStoppableFuture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHStoppableFuture.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98C8D88206515198980E1CF439F9A5CD /* ALEither.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ALEither.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BE8546EC07BA150D8967775308B220 /* ALEither-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALEither-umbrella.h"; sourceTree = "<group>"; };
-		A5B14C3CD625D95E3C2919A4BB570FA5 /* AHFuture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AHFuture.framework; path = AHFuture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5B14C3CD625D95E3C2919A4BB570FA5 /* AHFuture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AHFuture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C6554C3269F640C09CA203F23408DF /* AHAsyncType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AHAsyncType.swift; sourceTree = "<group>"; };
 		B49AE9EC81943C6A74A98C31416DC2E3 /* Pods-AHFuture_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AHFuture_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D4E491F687505CCFCA6F7AF9269428A5 /* ALEither.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ALEither.xcconfig; sourceTree = "<group>"; };
 		DDE3162BE7C3C25647C1B056757E85C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E7D522F59C46B0BDD3030FB6A32EEB82 /* AHFuture-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AHFuture-dummy.m"; sourceTree = "<group>"; };
 		F1F3B98FD27F86DF0AA6568BA7690263 /* Pods-AHFuture_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AHFuture_Tests-umbrella.h"; sourceTree = "<group>"; };
-		F539535C25FC8BF36935755B2197069F /* Pods-AHFuture_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AHFuture_Tests.modulemap"; sourceTree = "<group>"; };
+		F539535C25FC8BF36935755B2197069F /* Pods-AHFuture_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AHFuture_Tests.modulemap"; sourceTree = "<group>"; };
 		F5CC8592E3342F4E1AA08198D5B712EE /* Pods-AHFuture_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AHFuture_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		F6630F8DB2904A4524DA9F87E1C731CB /* ALEither.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ALEither.modulemap; sourceTree = "<group>"; };
+		F6630F8DB2904A4524DA9F87E1C731CB /* ALEither.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ALEither.modulemap; sourceTree = "<group>"; };
 		FDA2A74A17F1C851D6AF3C9302A29513 /* ALEither-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ALEither-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,8 +178,8 @@
 				B3C6554C3269F640C09CA203F23408DF /* AHAsyncType.swift */,
 				1F8F9587526C0392EB6F3468760F73B9 /* AHFuture.swift */,
 				484EE5C6D68073CF094331279DADDA95 /* AHRetryFuture.swift */,
+				89DAFD731EFDED91002EFCA7 /* AHStoppableFuture.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -295,7 +297,6 @@
 				3567A4E0EBCD6E7CCB99AF1D7469FC3F /* OptionalExt.swift */,
 				35CE169CBA787EBE1C9CBB407C8EA3DF /* Support Files */,
 			);
-			name = ALEither;
 			path = ALEither;
 			sourceTree = "<group>";
 		};
@@ -304,7 +305,6 @@
 			children = (
 				0E3CC19EDFBA00C00B0317A0406A09F8 /* Classes */,
 			);
-			name = AHFuture;
 			path = AHFuture;
 			sourceTree = "<group>";
 		};
@@ -462,6 +462,7 @@
 				2CB50C65696717A1611B12FD340D16C1 /* AHAsync.swift in Sources */,
 				89E8DFE5E9162FDF31F30811C3C6440D /* AHAsyncType.swift in Sources */,
 				298BFA5B2BE3EBEF78459368CDAED953 /* AHFuture-dummy.m in Sources */,
+				89DAFD741EFDED91002EFCA7 /* AHStoppableFuture.swift in Sources */,
 				F00A723554517FCAF3D6E1C84D7DC6B5 /* AHFuture.swift in Sources */,
 				F22EF231562441856021D29DC7380969 /* AHRetryFuture.swift in Sources */,
 			);

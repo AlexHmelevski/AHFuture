@@ -243,4 +243,38 @@ class AHFutureTests: XCTestCase {
         
     }
     
+    
+    func test_recover_calls_on_success_for_successFalue() {
+         AHFuture<Int, TestError> { (completion) in
+            
+            completion(.right(value: 1))
+         }
+          .map(transform: String.init)
+          .recover(transform: {_ in String("RECOVERED")})
+          .onSuccess { (str) in
+            
+                XCTAssertEqual(str, "1")
+                self.exp.fulfill()
+                
+         }.execute()
+        
+        wait(for: [exp], timeout: 5)
+    }
+    
+    func test_recover_calls_on_success_for_errorFalue() {
+        AHFuture<Int, TestError> { (completion) in
+            completion(.wrong(value: TestError.empty))
+        }
+        .map(transform: String.init)
+        .recover(transform: {_ in String("RECOVERED")})
+        .onSuccess { (str) in
+                
+                XCTAssertEqual(str, "RECOVERED")
+                self.exp.fulfill()
+                
+        }
+        .execute()
+        
+        wait(for: [exp], timeout: 5)
+    }
 }
