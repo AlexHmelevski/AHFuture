@@ -1,5 +1,5 @@
 PODS:
-  - AHFuture (0.1.3):
+  - AHFuture (0.1.6):
     - ALEither
   - ALEither (0.1.4)
 
@@ -11,9 +11,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  AHFuture: d18474e82808757e72ccdf0fa37834e949ad7c54
+  AHFuture: 1f1a31b00210ccc4170bbdea1dd46b80e0681571
   ALEither: 790e8f1dda897bfcb56e547e5db86c4eb25da87b
 
 PODFILE CHECKSUM: b3b19d876248929a118dfb284db0276384845bb7
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0.beta.2
