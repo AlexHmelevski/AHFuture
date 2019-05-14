@@ -1,6 +1,6 @@
 {
   "name": "AHFuture",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "summary": "A cool library for the asynchronous task usign idea of Futures",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/AlexHmelevski/AHFuture.git",
@@ -9,16 +9,17 @@
     "file": "LICENSE"
   },
   "authors": {
-    "AlexHmelevskiAG": "alexei.hmelevski@gmail.com"
+    "AlexHmelevski": "alexei.hmelevski@gmail.com"
   },
   "source": {
     "git": "https://github.com/AlexHmelevski/AHFuture.git",
-    "tag": "0.1.6"
+    "tag": "0.1.8"
   },
   "platforms": {
-    "ios": "8.0",
-    "tvos": "9.0"
+    "ios": "11.0",
+    "tvos": "12.0"
   },
+  "swift_version": "5.0",
   "source_files": "AHFuture/Classes/**/*",
   "dependencies": {
     "ALEither": [
