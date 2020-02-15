@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double ALEitherVersionNumber;
-FOUNDATION_EXPORT const unsigned char ALEitherVersionString[];
+FOUNDATION_EXPORT double EitherResultVersionNumber;
+FOUNDATION_EXPORT const unsigned char EitherResultVersionString[];
 

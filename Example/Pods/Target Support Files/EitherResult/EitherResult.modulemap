@@ -1,0 +1,6 @@
+framework module EitherResult {
+  umbrella header "EitherResult-umbrella.h"
+
+  export *
+  module * { export * }
+}

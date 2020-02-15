@@ -1,11 +1,9 @@
 //
-//  OptionalExt.swift
-//  Pods
+//  OptionalExtension.swift
+//  ALResult
 //
-//  Created by Alex Hmelevski on 2017-04-05.
+//  Created by Aldo Temp on 2018-10-25.
 //
-//
-
 
 import Foundation
 
@@ -13,7 +11,6 @@ infix operator »: transformOperator
 
 precedencegroup transformOperator {
     associativity: left
-    
 }
 
 public func »<T,U>(input: T, transform: (T) -> U) -> U {
@@ -27,10 +24,10 @@ extension Optional {
     /// - Parameter predicate: (Wrapped) -> Bool
     /// - Returns: Wrapped?
     
-    public func take(if predicate: (Wrapped) -> Bool) -> Wrapped? {
+    public func filter(if predicate: (Wrapped) -> Bool) -> Wrapped? {
         switch self {
-            case .some(let val): return predicate(val) ? self : nil
-            case .none: return self
+        case .some(let val): return predicate(val) ? self : nil
+        case .none: return self
         }
     }
     
@@ -41,10 +38,10 @@ extension Optional {
     ///   - default: Wrapped
     /// - Returns: Wrapped?
     
-    public func take(if predicate: (Wrapped) -> Bool, default: Wrapped) -> Wrapped? {
+    public func filter(if predicate: (Wrapped) -> Bool, default: Wrapped) -> Wrapped? {
         switch self {
-            case .some(let val): return predicate(val) ? self : `default`
-            case .none: return self
+        case .some(let val): return predicate(val) ? self : `default`
+        case .none: return self
         }
     }
     
@@ -55,19 +52,19 @@ extension Optional {
     ///   - work: block of work with value
     /// - Returns: unmodified Wrapped?
     @discardableResult
-    public func `do`(work:  @escaping (Wrapped) -> Void) -> Wrapped? {
+    public func `do`(_ work:  @escaping (Wrapped) -> Void) -> Wrapped? {
         if case .some(let val) = self {
             work(val)
         }
         return self
-    }    
+    }
     
     /// doNone function allows to perform some work if the result is none,
     ///
     /// - Parameter work: Block of work
     /// - Returns: Wrapped?
     @discardableResult
-    public func doIfNone(work: @escaping () -> Void) -> Wrapped? {
+    public func onNone(_ work: @escaping () -> Void) -> Wrapped? {
         if case .none = self {
             work()
         }
@@ -76,8 +73,8 @@ extension Optional {
     
     @discardableResult
     public func debug(message: String? = nil) -> Wrapped? {
-        message.do(work: { debugPrint($0 + " " + "\(String(describing: self))") })
-               .doIfNone(work: { debugPrint(self ?? "nil") })
+        message.do({ debugPrint($0 + " " + "\(String(describing: self))") })
+               .onNone({ debugPrint(self ?? "nil") })
         return self
     }
     
