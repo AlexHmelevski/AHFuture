@@ -25,7 +25,7 @@ User.logIn(username, password) { user, error in
 }
 ```
 
-Now let's see what BrightFutures can do for you:
+Now let's see what AHFuture can do for you:
 
 ```swift
 User.logIn(username, password).flatMap { user in

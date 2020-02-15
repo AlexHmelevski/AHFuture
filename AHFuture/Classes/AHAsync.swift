@@ -9,21 +9,21 @@
 import Foundation
 import ALEither
 
-class AHAsync<Result>: AHAsyncType {
+public class AHAsync<Result>: AHAsyncType {
     
-    typealias Res = Result
+    public typealias Res = Result
     
     typealias  Callback = (Result) -> Void
     internal var callbacks = [Callback]()
     
-    internal var result: AHAsync.Res?
-    internal let scope: (@escaping(Result) -> Void) -> Void
+    public var result: AHAsync.Res?
+    public let scope: (@escaping(Result) -> Void) -> Void
     
     private var executionQueue: DispatchQueue = .main
     private var observingQueue: DispatchQueue = .main
     
     @discardableResult
-    func onComplete(callback: @escaping (Result) -> Void) -> Self {
+    public func onComplete(callback: @escaping (Result) -> Void) -> Self {
         let main: Callback = { res in
             self.observingQueue.async {
                 callback(res)
@@ -34,7 +34,7 @@ class AHAsync<Result>: AHAsyncType {
         return self
     }
     
-    internal required init(scope: @escaping (@escaping(Result) -> Void) -> Void) {
+    public required init(scope: @escaping (@escaping(Result) -> Void) -> Void) {
         self.scope = scope
     }
     
